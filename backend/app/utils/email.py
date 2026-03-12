@@ -1,6 +1,8 @@
 from flask import current_app
 from flask_mail import Message
+
 from app import mail
+
 
 def send_verification_email(to_email, otp_code):
     """
@@ -9,7 +11,7 @@ def send_verification_email(to_email, otp_code):
     """
     try:
         msg = Message("Verify Your Account - Roastify", recipients=[to_email])
-        
+
         msg.body = f"""Hello!
 
 Please verify your Roastify account using the following OTP code:

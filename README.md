@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🎤 Roastify
+<img src="frontend/public/logo.png" alt="Roastify Logo" width="180" />
+
+# Roastify
 
 ### Get roasted by your favourite celebrity — powered by AI.
 
