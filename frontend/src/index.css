@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #080808;
+  color: #f8f6f2;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
+
+/* ── Liquid Glass (core panel style) ── */
+.liquid-glass {
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(40px) saturate(1.5) brightness(1.05);
+  -webkit-backdrop-filter: blur(40px) saturate(1.5) brightness(1.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ── Liquid Glass Raised (cards) ── */
+.liquid-raised {
+  background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  backdrop-filter: blur(30px) saturate(1.4);
+  -webkit-backdrop-filter: blur(30px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+/* ── Plasma gradient text ── */
+.plasma-text {
+  background: linear-gradient(135deg, #ff6a33 0%, #ff4500 40%, #a64df5 80%, #8a2be2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Plasma gradient border (via outline-trick pseudo-element) ── */
+.plasma-border {
+  position: relative;
+}
+.plasma-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff4500, #8a2be2);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Skeleton shimmer ── */
+.skeleton {
+  background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+  background-size: 1200px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 8px;
+}
+
+/* ── 3D Gummi Buttons ── */
+.btn-plasma {
+  background: linear-gradient(180deg, #ff6a33 0%, #ff4500 45%, #c73700 100%);
+  box-shadow: 0 6px 24px rgba(255,69,0,0.45), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -2px 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: white;
+  font-weight: 600;
+}
+.btn-plasma:hover {
+  box-shadow: 0 12px 40px rgba(255,69,0,0.6), inset 0 1px 0 rgba(255,255,255,0.28);
+  transform: translateY(-2px) scale(1.01);
+}
+.btn-plasma:active {
+  box-shadow: 0 3px 12px rgba(255,69,0,0.4), inset 0 3px 6px rgba(0,0,0,0.25);
+  transform: translateY(1px) scale(0.99);
+}
+.btn-plasma:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: all 0.15s ease;
+  color: rgba(255,255,255,0.7);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); color: white; }
+
+/* ── Celebrity card floats / hover tilt ── */
+.celeb-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+.celeb-card:hover {
+  border-color: rgba(255,69,0,0.35);
+  box-shadow: 0 12px 40px rgba(255,69,0,0.18), 0 4px 20px rgba(0,0,0,0.5);
+  transform: translateY(-5px) rotateX(2deg);
+}
+.celeb-card.selected {
+  border-color: #ff4500;
+  background: rgba(255,69,0,0.07);
+  box-shadow: 0 0 0 1px rgba(255,69,0,0.6), 0 8px 40px rgba(255,69,0,0.25);
+}
+
+/* ── Chat message bubbles ── */
+.bubble-user {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+.bubble-ai {
+  background: rgba(14,14,14,0.8);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+.bubble-ai::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,69,0,0.5), rgba(138,43,226,0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+/* Intensify glow with burn level via CSS var */
+.bubble-ai { --burn-opacity: 0.6; }
+.bubble-ai[data-burn="high"]::before { opacity: 1; }
+.bubble-ai[data-burn="high"] { box-shadow: 0 0 30px rgba(255,69,0,0.12); }
+
+/* ── Burn fuse dots ── */
+.fuse-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #ff4500;
+  box-shadow: 0 0 8px rgba(255,69,0,0.8);
+}
+
+/* ── Typing cursor ── */
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.cursor-blink { animation: blink 0.85s step-end infinite; }
+
+/* ── Message entrance ── */
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.msg-in  { animation: msgIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.msg-out { animation: msgIn 0.2s ease-out; }
+
+/* ── Burn bar pulse ── */
+@keyframes burnPulse {
+  0%,100% { box-shadow: 0 0 10px rgba(255,69,0,0.4); }
+  50%     { box-shadow: 0 0 30px rgba(255,110,0,0.9); }
+}
+.burn-pulse { animation: burnPulse 1s ease-in-out infinite; }
+
+/* ── Screen shake (high burn) ── */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-5px) rotate(-0.5deg); }
+  40%     { transform: translateX(5px)  rotate(0.5deg); }
+  60%     { transform: translateX(-3px); }
+  80%     { transform: translateX(3px); }
+}
+.animate-shake { animation: shake 0.4s ease-in-out; }
