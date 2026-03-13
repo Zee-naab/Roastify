@@ -75,6 +75,23 @@ def chat_history():
 
     return jsonify({'conversation_id': conversation_id, 'messages': messages}), 200
 
+
+@main.route('/api/chat/clear', methods=['POST'])
+def clear_chat():
+    """
+    Deletes all messages for the given conversation_id so the thread is empty in DB.
+    Expects JSON: { "conversation_id": "uuid" }
+    """
+    data = request.get_json() or {}
+    conversation_id = data.get('conversation_id')
+
+    if not conversation_id:
+        return jsonify({'error': 'conversation_id is required'}), 400
+
+    result = mongo.db.messages.delete_many({'conversation_id': conversation_id})
+    return jsonify({'deleted': result.deleted_count}), 200
+
+
 @main.route('/api/chat/stream', methods=['POST'])
 def chat_stream():
     """

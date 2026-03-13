@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mic } from "lucide-react";
-import { streamRoast, startNewChat, fetchChatHistory } from "../api/chat";
+import { Send, Mic, Trash2 } from "lucide-react";
+import { streamRoast, startNewChat, fetchChatHistory, clearChat } from "../api/chat";
 
 /* Skeleton row while loading */
 function SkeletonMsg({ isUser }) {
@@ -280,6 +280,24 @@ export default function ChatWindow({ persona, mode }) {
     });
   }
 
+  async function handleClearChat() {
+    if (!conversationId || streaming) return;
+    try {
+      await clearChat(conversationId);
+      setChats((prev) => ({
+        ...prev,
+        [persona]: {
+          ...(prev[persona] || {}),
+          messages: [],
+          usedAngles: [],
+          conversationId,
+        },
+      }));
+    } catch (err) {
+      console.error("Failed to clear chat:", err);
+    }
+  }
+
   const lastMsgIsEmptyAI =
     messages.length > 0 &&
     messages[messages.length - 1].role === "assistant" &&
@@ -293,6 +311,21 @@ export default function ChatWindow({ persona, mode }) {
       animate={shake ? { x: [-5, 5, -4, 4, -2, 2, 0] } : {}}
       transition={{ duration: 0.4 }}
     >
+      {/* Toolbar: Clear chat when we have a conversation */}
+      {conversationId && (
+        <div className="flex-shrink-0 flex justify-end px-4 sm:px-8 pt-4 pb-1">
+          <button
+            type="button"
+            onClick={handleClearChat}
+            disabled={streaming}
+            className="flex items-center gap-2 text-sm text-muted hover:text-white transition-colors disabled:opacity-50"
+          >
+            <Trash2 size={16} />
+            Clear chat
+          </button>
+        </div>
+      )}
+
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 pb-12">
         {messages.length === 0 && (

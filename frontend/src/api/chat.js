@@ -24,6 +24,15 @@ export async function fetchChatHistory(userEmail, persona, limit = 10) {
   return res.json();
 }
 
+export async function clearChat(conversationId) {
+  const res = await fetch(`${BACKEND_URL}/api/chat/clear`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ conversation_id: conversationId }),
+  });
+  return res.json();
+}
+
 export async function streamRoast({ message, persona, mode, history, usedAngles, conversationId, onChunk, onAngleUsed, onDone, onError }) {
   try {
     const response = await fetch(`${BACKEND_URL}/api/chat/stream`, {

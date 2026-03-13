@@ -29,7 +29,7 @@ Responses stream word-by-word using **Server-Sent Events**, just like watching a
 
 | Feature | Description |
 |---|---|
-| 🎭 **15 Celebrity Personas** | Gordon Ramsay, Elon Musk, Kanye West, Drake, Taylor Swift, and 10 more |
+| 🎭 **15 Celebrity Personas** | Gordon Ramsay, Elon Musk, Kanye West, Abhishek Upmanyu, Umer Sharif, and 10 more |
 | 🔥 **4 Roast Modes** | Gentle · Savage · Twitter (one-liner) · Hollywood insider |
 | ⚡ **Live Streaming** | Word-by-word SSE streaming — no waiting for the full response |
 | 🧠 **Joke Memory** | Tracks used angles per session to prevent repeated jokes |
@@ -200,16 +200,16 @@ The app will be live at `http://localhost:5173`.
 
 | Celebrity | Roast Style |
 |---|---|
-| 👨‍🍳 Gordon Ramsay | Explosive anger, screams in ALL CAPS |
-| 🚀 Elon Musk | Dry tech-bro sarcasm |
-| 🎤 Kanye West | Overconfident genius rants |
+| 👨‍🍳 Gordon Ramsay | Explosive anger, insults first then answers |
+| 🚀 Elon Musk | Dry awkward tech-bro sarcasm |
+| 🎤 Kanye West | Overconfident visionary genius rants |
 | 💅 Kim Kardashian | Calm influencer shade |
-| 🎬 Tom Cruise | Intense action-hero motivation |
-| 🎶 Taylor Swift | Lyrical, poetic storytelling burns |
-| 🤖 Mark Zuckerberg | Flat, robotic, accidentally creepy |
+| 🤔 Abhishek Upmanyu | Overthinking middle-class rants in Hindi |
+| 📺 Tabish Hashmi | Polite but razor-sharp Urdu talk-show roast |
+| 🎭 Umer Sharif | Theatrical Urdu storytelling with a twist |
 | 🌟 Will Smith | Hype-man energy while destroying you |
 | 📦 Jeff Bezos | Cold corporate-villain sarcasm |
-| ⚽ Cristiano Ronaldo | Arrogant SIUUU supremacy |
+| 😎 Anubhav Singh Bassi | Chill Hindi college stories before the roast |
 | 🦉 Drake | Melodramatic sad-rapper shade |
 | 👑 Nicki Minaj | Queen addressing peasants |
 | 🎭 Richard Pryor | Raw honest storytelling |
