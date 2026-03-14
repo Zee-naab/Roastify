@@ -364,7 +364,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="relative z-10 text-center py-8 text-xs text-muted/50 border-t border-white/5 font-mono">
-        © 2025 Roastify · Powered by Groq LLaMA 3 · Built with 🔥
+        © 2026 Roastify · Powered by Groq LLaMA 3 · Built with 🔥
       </footer>
     </div>
   );
