@@ -133,7 +133,7 @@ export default function LandingPage() {
       </div>
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-12 py-4 liquid-glass border-b border-white/5">
+  <nav className="sticky top-0 z-50 flex flex-wrap items-center justify-between gap-3 px-4 sm:px-12 py-4 liquid-glass border-b border-white/5">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 btn-plasma rounded-xl flex items-center justify-center shadow-heat-lg/30">
             <Mic size={15} className="text-white" />
@@ -142,16 +142,16 @@ export default function LandingPage() {
             Roastify
           </span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => navigate("/login")}
-            className="btn-ghost px-4 py-2 rounded-xl text-sm"
+            className="btn-ghost px-3 sm:px-4 py-2 rounded-xl text-sm"
           >
             Sign in
           </button>
           <button
             onClick={() => navigate("/login", { state: { mode: "signup" } })}
-            className="btn-plasma px-5 py-2 rounded-xl text-sm"
+            className="btn-plasma px-4 sm:px-5 py-2 rounded-xl text-sm"
           >
             Get roasted free
           </button>
@@ -159,7 +159,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative z-10 px-6 pt-32 pb-24 text-center">
+  <section className="relative z-10 px-4 sm:px-6 pt-24 sm:pt-32 pb-20 sm:pb-24 text-center">
         <FadeUp delay={0}>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 liquid-glass rounded-full text-xs text-heat border border-heat/20 mb-10">
             <span className="w-1.5 h-1.5 rounded-full bg-heat animate-pulse" />
@@ -169,14 +169,14 @@ export default function LandingPage() {
 
         {/* 3D mic icon */}
         <FadeUp delay={0.1}>
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-8 sm:mb-10">
             <motion.div
               className="relative"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="w-28 h-28 btn-plasma rounded-[2rem] flex items-center justify-center shadow-heat-lg">
-                <Mic size={52} className="text-white" />
+              <div className="w-20 h-20 sm:w-28 sm:h-28 btn-plasma rounded-[2rem] flex items-center justify-center shadow-heat-lg">
+                <Mic size={38} className="text-white" />
               </div>
               <motion.div
                 className="absolute -inset-4 rounded-[2.5rem] border border-heat/20"
@@ -193,7 +193,7 @@ export default function LandingPage() {
         </FadeUp>
 
         <FadeUp delay={0.2}>
-          <h1 className="font-display font-black text-6xl sm:text-8xl leading-[0.95] tracking-tight mb-6">
+          <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-8xl leading-tight sm:leading-[0.95] tracking-tight mb-6">
             Get Roasted by Your
             <br />
             <em className="plasma-text not-italic">Favourite Celebrity</em>
@@ -201,23 +201,23 @@ export default function LandingPage() {
         </FadeUp>
 
         <FadeUp delay={0.3}>
-          <p className="text-white/40 text-lg max-w-lg mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-white/40 text-base sm:text-lg max-w-lg mx-auto mb-8 sm:mb-10 leading-relaxed font-light px-2">
             Ask anything. Get destroyed. Each celebrity has unique voice, speech
             patterns, and zero mercy.
           </p>
         </FadeUp>
 
         <FadeUp delay={0.4}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <button
               onClick={() => navigate("/login", { state: { mode: "signup" } })}
-              className="btn-plasma px-10 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-2"
+              className="btn-plasma px-8 sm:px-10 py-4 rounded-2xl font-semibold text-base sm:text-lg flex items-center justify-center gap-2"
             >
               <Mic size={20} /> Enter the Hot Seat
             </button>
             <button
               onClick={() => navigate("/login")}
-              className="btn-ghost px-10 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-2"
+              className="btn-ghost px-8 sm:px-10 py-4 rounded-2xl font-semibold text-base sm:text-lg flex items-center justify-center gap-2"
             >
               Already a member <ChevronRight size={18} />
             </button>
@@ -225,8 +225,8 @@ export default function LandingPage() {
         </FadeUp>
 
         {/* Mock chat card */}
-        <FadeUp delay={0.5} className="mt-20 max-w-lg mx-auto">
-          <div className="liquid-raised rounded-2xl p-5 text-left plasma-border">
+        <FadeUp delay={0.5} className="mt-14 sm:mt-20 max-w-lg mx-auto">
+          <div className="liquid-raised rounded-2xl p-4 sm:p-5 text-left plasma-border">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
@@ -239,7 +239,7 @@ export default function LandingPage() {
               </span>
             </div>
             <div className="flex justify-end mb-3">
-              <div className="bubble-user max-w-[70%] px-4 py-2.5 rounded-2xl rounded-br-sm text-sm">
+              <div className="bubble-user max-w-[85%] sm:max-w-[70%] px-4 py-2.5 rounded-2xl rounded-br-sm text-sm">
                 My code had 47 syntax errors today.
               </div>
             </div>
@@ -247,7 +247,7 @@ export default function LandingPage() {
               <div className="w-8 h-8 btn-plasma rounded-xl flex items-center justify-center text-sm flex-shrink-0">
                 👨‍🍳
               </div>
-              <div className="bubble-ai max-w-[78%] px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm">
+              <div className="bubble-ai max-w-[85%] sm:max-w-[78%] px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm">
                 47 errors.{" "}
                 <span className="text-white/55">
                   You've written code that even a rubber duck would quit on.
@@ -259,13 +259,13 @@ export default function LandingPage() {
       </section>
 
       {/* Hall of Roasters – Floating Bento Grid */}
-      <section className="relative z-10 py-24 px-6">
+  <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
             <p className="text-xs font-mono uppercase tracking-[0.25em] text-muted text-center mb-2">
               Hall of Roasters
             </p>
-            <h2 className="font-display font-black text-5xl sm:text-6xl text-center mb-14">
+            <h2 className="font-display font-black text-4xl sm:text-6xl text-center mb-10 sm:mb-14">
               Choose Your Destroyer
             </h2>
           </FadeUp>
@@ -274,7 +274,7 @@ export default function LandingPage() {
               <motion.button
                 key={r.id}
                 onClick={() => navigate("/login")}
-                className="celeb-card rounded-2xl p-5 sm:p-6 text-left"
+                className="celeb-card rounded-2xl p-4 sm:p-6 text-left"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -282,7 +282,7 @@ export default function LandingPage() {
                 whileHover={{ rotateX: 3, rotateY: -3, scale: 1.02 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="text-4xl mb-3">{r.emoji}</div>
+                <div className="text-3xl sm:text-4xl mb-3">{r.emoji}</div>
                 <div className="font-semibold text-white/90 text-sm mb-0.5">
                   {r.name}
                 </div>
@@ -299,13 +299,13 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="relative z-10 py-24 px-6">
+      <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <h2 className="font-display font-black text-5xl text-center mb-3">
+            <h2 className="font-display font-black text-4xl sm:text-5xl text-center mb-3">
               Not your average chatbot.
             </h2>
-            <p className="text-center text-white/35 mb-16 font-light max-w-md mx-auto">
+            <p className="text-center text-white/35 mb-12 sm:mb-16 font-light max-w-md mx-auto">
               Persona engineering, joke memory, and comedy structure — so every
               roast lands differently.
             </p>
@@ -331,9 +331,9 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative z-10 py-24 px-6 text-center">
+      <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 text-center">
         <FadeUp>
-          <div className="max-w-xl mx-auto liquid-raised rounded-3xl p-14 plasma-border">
+          <div className="max-w-xl mx-auto liquid-raised rounded-3xl p-8 sm:p-14 plasma-border">
             <motion.div
               className="w-16 h-16 btn-plasma rounded-2xl flex items-center justify-center mx-auto mb-6"
               animate={{
@@ -347,15 +347,15 @@ export default function LandingPage() {
             >
               <Mic size={32} className="text-white" />
             </motion.div>
-            <h2 className="font-display font-black text-5xl mb-3">
+            <h2 className="font-display font-black text-4xl sm:text-5xl mb-3">
               Take the Hot Seat.
             </h2>
-            <p className="text-muted mb-8 font-light">
+            <p className="text-muted mb-6 sm:mb-8 font-light">
               Free to start. Zero credit card. Just your ego on the line.
             </p>
             <button
               onClick={() => navigate("/login", { state: { mode: "signup" } })}
-              className="btn-plasma px-14 py-4 rounded-2xl font-semibold text-lg"
+              className="btn-plasma px-10 sm:px-14 py-4 rounded-2xl font-semibold text-base sm:text-lg"
             >
               🔥 Get Roasted — It's Free
             </button>

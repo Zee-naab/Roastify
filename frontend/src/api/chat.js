@@ -1,7 +1,7 @@
-const BACKEND_URL = 'http://127.0.0.1:5000';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5000';
 
 /**
- * Streams a roast response from the Flask backend using SSE.
+ * Streams a roast response from the backend using SSE.
  * Calls onChunk(text) for each text chunk.
  * Calls onAngleUsed(angle) when the server emits an angle_used event.
  * Calls onDone(footerText) when the stream ends.

@@ -45,7 +45,8 @@ export default function AuthPage() {
           localStorage.setItem("user_email", email);
           navigate("/chat");
         } else {
-          setError(data.error || "Invalid email or password.");
+          const detail = data.details ? ` (${data.details})` : "";
+          setError((data.error || "Invalid email or password.") + detail);
         }
       } else {
         // New user: email + password → triggers OTP email
@@ -53,8 +54,10 @@ export default function AuthPage() {
         if (data.message || data.success) {
           setStep("otp");
         } else {
+          const detail = data.details ? ` (${data.details})` : "";
           setError(
-            data.error || "Could not create account. Try signing in instead.",
+            (data.error || "Could not create account. Try signing in instead.") +
+              detail,
           );
         }
       }

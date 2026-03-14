@@ -66,24 +66,33 @@ export default function ChatPage() {
       </header>
 
       {/* Body */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden min-h-0">
         {/* Sidebar */}
         {sidebarOpen && (
-          <aside className="w-64 sm:w-72 flex-shrink-0 border-r border-white/5 overflow-y-auto p-4 flex flex-col gap-6 bg-surface/50">
-            <section>
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-3">
-                Celebrity
-              </p>
-              <CelebrityGrid selected={persona} onSelect={setPersona} />
-            </section>
-            <section>
-              <ModeSelector selected={mode} onSelect={setMode} />
-            </section>
-          </aside>
+          <>
+            <div
+              className="sm:hidden fixed inset-0 bg-black/50 z-20"
+              onClick={() => setSidebarOpen(false)}
+              aria-hidden="true"
+            />
+            <aside
+              className="fixed sm:static inset-y-0 left-0 z-30 w-72 max-w-[85vw] sm:w-72 flex-shrink-0 border-r border-white/5 overflow-y-auto p-4 flex flex-col gap-6 bg-surface/95 sm:bg-surface/50"
+            >
+              <section>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-3">
+                  Celebrity
+                </p>
+                <CelebrityGrid selected={persona} onSelect={setPersona} />
+              </section>
+              <section>
+                <ModeSelector selected={mode} onSelect={setMode} />
+              </section>
+            </aside>
+          </>
         )}
 
         {/* Chat */}
-        <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <main className="flex-1 flex flex-col min-w-0 overflow-hidden min-h-0">
           <ChatWindow persona={persona} mode={mode} />
         </main>
       </div>

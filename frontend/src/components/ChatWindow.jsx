@@ -327,7 +327,7 @@ export default function ChatWindow({ persona, mode }) {
       )}
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 pb-12">
+  <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-5 pb-20">
         {messages.length === 0 && (
           <motion.div
             className="flex flex-col items-center justify-center min-h-[320px] text-center"
@@ -370,7 +370,7 @@ export default function ChatWindow({ persona, mode }) {
       </div>
 
       {/* Input bar */}
-      <div className="flex-shrink-0 px-4 sm:px-8 py-5 border-t border-white/5 liquid-glass z-10">
+      <div className="flex-shrink-0 px-4 sm:px-8 py-4 border-t border-white/5 liquid-glass z-10">
         <form onSubmit={handleSend} className="flex items-center gap-4">
           <input
             ref={inputRef}
@@ -385,12 +385,12 @@ export default function ChatWindow({ persona, mode }) {
                   ? "Preparing the stage…"
                   : "Say something worth roasting…"
             }
-            className="flex-1 bg-base border border-white/8 rounded-2xl px-6 py-4 text-white placeholder-gray-400 text-base focus:border-heat focus:outline-none transition-colors disabled:opacity-50 font-medium"
+            className="flex-1 bg-base border border-white/8 rounded-2xl px-4 sm:px-6 py-3.5 sm:py-4 text-white placeholder-gray-400 text-base focus:border-heat focus:outline-none transition-colors disabled:opacity-50 font-medium"
           />
           <motion.button
             type="submit"
             disabled={streaming || !input.trim() || isInitializing}
-            className="btn-plasma w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="btn-plasma w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center flex-shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
