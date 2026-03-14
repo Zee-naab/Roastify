@@ -69,12 +69,15 @@ Roastify/
 │   │   ├── auth.py              # Auth blueprint (/api/auth)
 │   │   ├── models.py            # MongoDB helpers + prune_messages()
 │   │   ├── routes.py            # Chat blueprint (/api/chat)
+│   │   ├── static/              # CSS/Static assets
+│   │   ├── templates/           # HTML templates
 │   │   └── utils/
 │   │       ├── email.py         # OTP email sender
 │   │       └── llm.py           # Groq streaming + celebrity data packs
 │   ├── config.py                # Config from .env
 │   ├── run.py                   # Entry point
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── .env.example             # Example environment variables
 └── frontend/
     └── src/
         ├── api/
@@ -87,7 +90,9 @@ Roastify/
         │   ├── LandingPage.jsx
         │   ├── AuthPage.jsx
         │   └── ChatPage.jsx
-        └── App.jsx              # Routes + auth guards
+        ├── App.jsx              # Routes + auth guards
+        ├── index.css            # Global styles
+        └── main.jsx             # React entry point
 ```
 
 ---
